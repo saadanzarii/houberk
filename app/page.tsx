@@ -1,10 +1,15 @@
-import { Nav } from "@/component/nav";
-import Image from "next/image";
+import { AboutSection } from "@/component/about";
+import { HeroSection } from "@/component/hero";
+import { StatsSection } from "@/component/stats";
+import { TrustBadges } from "@/component/trust";
 
-export default function Page() {
+export default function Home() {
   return (
-    <>
-      <Nav />
-    </>
+    <main className="min-h-screen bg-background bg-white">
+      <HeroSection />
+      <TrustBadges />
+      <AboutSection />
+      <StatsSection />
+    </main>
   );
 }
