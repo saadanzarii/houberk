@@ -5,7 +5,7 @@ import { instrumentSerif } from "@/app/layout";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[600px] lg:min-h-[500px] w-full overflow-hidden">
+    <section className="relative min-h-[600px] lg:min-h-[700px] w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -67,7 +67,7 @@ export function HeroSection() {
         {/* CTA Button - Desktop */}
         <Button
           variant="outline"
-          className={`hidden border-white bg-transparent text-white hover:bg-white hover:text-foreground lg:inline-flex ${instrumentSerif.variable}`}
+          className={`hidden border-white bg-transparent text-white hover:bg-white hover:text-black lg:inline-flex ${instrumentSerif.variable}`}
         >
           Request a Quote
         </Button>
@@ -83,10 +83,11 @@ export function HeroSection() {
       </nav>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-[600px] items-center px-6 lg:px-12">
+      {/* Hero Content */}
+      <div className="relative z-10 flex justify-between min-h-[600px] lg:min-h-[700px] items-end px-6 pb-16 lg:px-12 lg:pb-10">
         <div className="grid w-full gap-8 lg:grid-cols-2">
           {/* Left Content */}
-          <div className="max-w-xl">
+          <div>
             <h1
               className={`text-balance text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-5xl ${instrumentSerif.variable}`}
             >
@@ -95,17 +96,18 @@ export function HeroSection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col justify-start lg:items-end">
+          <div className="flex flex-col justify-end lg:items-end">
             <p
-              className={`max-w-md text-pretty text-white/90 lg:text-right ${instrumentSerif.variable}`}
+              className={`max-w-md text-pretty text-white/90 lg:text-right  ${instrumentSerif.variable}`}
             >
               We supply industrial equipment and manage technical projects so
               your business runs smoothly, stays on schedule, and avoids costly
               delays.
             </p>
+
             <Button
               variant="outline"
-              className="mt-6 w-fit border-white bg-transparent text-white hover:bg-white hover:text-foreground"
+              className="mt-6 w-fit rounded-3xl border-white bg-white text-black hover:bg-transparent hover:text-white align"
             >
               Request a Quote
             </Button>
