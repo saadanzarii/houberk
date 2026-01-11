@@ -1,9 +1,9 @@
 export function AboutSection() {
   return (
-    <section className="bg-background py-16">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <span className="text-sm font-medium text-cyan-500">About Us</span>
-        <p className="mt-6 text-pretty text-lg leading-relaxed text-foreground md:text-xl">
+    <section className="bg-background py-16 ">
+      <div className="mx-auto max-w-6xl px-6 text-center ">
+        <span className="text-sm font-medium lg:text-2xl text-cyan-500">About Us</span>
+        <p className="mt-6 text-lg leading-relaxed  md:text-xl lg:text-3xl text-black ">
           We deliver industrial products, EPC services, and technical solutions
           that help businesses run smoothly. Our team combines strong
           engineering expertise, on-time delivery, & high safety & quality

@@ -12,7 +12,7 @@ export function StatsSection() {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="flex items-baseline justify-center">
-                <span className="text-5xl font-bold text-foreground md:text-6xl">
+                <span className="text-5xl  text-black md:text-6xl">
                   {stat.value}
                 </span>
                 <span className="text-3xl font-bold text-cyan-500 md:text-4xl">

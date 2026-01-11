@@ -11,9 +11,9 @@ export function TrustBadges() {
   ];
 
   return (
-    <section className="border-b border-border bg-background py-8">
+    <section className=" bg-background py-8">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-6 text-center text-sm text-muted-foreground">
+        <p className="mb-6 text-center text-sm text-black">
           Trusted by industrial and engineering businesses across the UAE
         </p>
 
