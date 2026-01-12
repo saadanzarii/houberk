@@ -1,8 +1,36 @@
+"use client";
+import { useEffect, useState } from "react";
+
+function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const startTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * end);
+
+      setCount(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [end, duration]);
+
+  return <>{count}</>;
+}
+
 export function StatsSection() {
   const stats = [
-    { value: "500", suffix: "+", label: "Projects Delivered" },
-    { value: "95", suffix: "%", label: "On-Time Project Delivery" },
-    { value: "10", suffix: "+", label: "Years of Industry Experience" },
+    { value: 500, suffix: "+", label: "Projects Delivered" },
+    { value: 95, suffix: "%", label: "On-Time Project Delivery" },
+    { value: 10, suffix: "+", label: "Years of Industry Experience" },
   ];
 
   return (
@@ -12,16 +40,14 @@ export function StatsSection() {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="flex items-baseline justify-center">
-                <span className="text-5xl  text-black md:text-6xl">
-                  {stat.value}
+                <span className="text-5xl text-black md:text-6xl">
+                  <CountUp end={stat.value} />
                 </span>
-                <span className="text-center text-4xl font-bold  text-[#3EB6CC] md:text-4xl lg:text-5xl">
+                <span className="text-4xl font-bold text-[#3EB6CC] md:text-4xl lg:text-5xl">
                   {stat.suffix}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground text-gray-700">
-                {stat.label}
-              </p>
+              <p className="mt-2 text-sm text-gray-700">{stat.label}</p>
             </div>
           ))}
         </div>
