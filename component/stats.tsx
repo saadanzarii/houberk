@@ -15,11 +15,13 @@ export function StatsSection() {
                 <span className="text-5xl  text-black md:text-6xl">
                   {stat.value}
                 </span>
-                <span className="text-3xl font-bold text-cyan-500 md:text-4xl">
+                <span className="text-center text-4xl font-bold  text-[#3EB6CC] md:text-4xl lg:text-5xl">
                   {stat.suffix}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+              <p className="mt-2 text-sm text-muted-foreground text-gray-700">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
