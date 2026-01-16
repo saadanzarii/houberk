@@ -20,7 +20,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[80vh] w-full bg-[url('/hero.png')] bg-cover bg-center bg-no-repeat">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/5" />
 
       {/* NAVBAR */}
       <nav className="relative z-20 flex items-center justify-between px-6 py-4 lg:px-12">
@@ -29,7 +29,7 @@ export function HeroSection() {
           <img
             src="/logo.svg"
             alt="Company Logo"
-            className="h-12 w-12 object-contain"
+            className="h-8 w-8 object-contain lg:h-12 lg:w-12"
           />
         </Link>
         {/* Desktop Navigation */}
@@ -38,7 +38,7 @@ export function HeroSection() {
             <Link
               key={item.name}
               href={item.link}
-              className="text-white hover:text-white/80"
+              className="text-[#ffffff] !font-semibold hover:text-white/80"
             >
               {item.name}
             </Link>
@@ -53,7 +53,7 @@ export function HeroSection() {
         </Button> */}
         <Button
           variant="outline"
-          className="!hidden lg:!inline-flex border-white bg-transparent text-white hover:bg-white hover:text-black"
+          className="!hidden lg:!inline-flex !font-semibold !rounded-md border-white bg-transparent text-white hover:bg-white hover:text-black"
         >
           Request a Quote
         </Button>
@@ -74,49 +74,63 @@ export function HeroSection() {
       {/* MOBILE MENU */}
       <div
         className={clsx(
-          "lg:hidden absolute top-[72px] left-10 right-10 z-30 bg-black/95 backdrop-blur-md transition-all duration-300 origin-top",
-          isMobileMenuOpen
-            ? "opacity-100 scale-y-100 pointer-events-auto"
-            : "opacity-0 scale-y-0 pointer-events-none"
+          "lg:hidden fixed top-0 left-0 z-40 h-screen w-[85%] max-w-sm bg-white shadow-xl transition-transform duration-300 ease-in-out",
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <ul className="flex flex-col items-center gap-6 px-6 py-8">
+        <ul className="flex h-full flex-col pt-16">
           {navItems.map((item) => (
-            <li key={item.name}>
+            <li key={item.name} className="border-b border-gray-200 px-6 py-4">
               <Link
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white text-lg"
+                className="block text-lg font-medium text-black transition-colors hover:text-[#3EB6CC]"
               >
                 {item.name}
               </Link>
             </li>
           ))}
 
+          {/* Spacer */}
+          <div className="flex-1" />
+
           {/* Mobile CTA */}
-          <Button
-            variant="outline"
-            className="mt-6 w-full border-white bg-white text-black "
-          >
-            Request a Quote
-          </Button>
+          <li className="px-6 pb-6">
+            <Button className="w-full !rounded-md bg-black py-6 text-white font-semibold hover:bg-black/90">
+              Request a Quote
+            </Button>
+          </li>
         </ul>
       </div>
 
       {/* HERO CONTENT */}
-      <div className="relative z-10 flex min-h-[600px] items-end px-6 pb-16 lg:px-12">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <h1 className="text-4xl font-bold text-white md:text-5xl">
+      <div className="relative z-10 flex min-h-[650px] items-end px-6 pb-10 lg:px-12 ">
+        <div className="grid gap-8 lg:grid-cols-2 ">
+          <h1 className="self-center text-4xl font-bold text-white md:text-5xl leading-14">
             Industrial Trading & Project Solutions for Businesses
           </h1>
 
-          <div>
-            <p className="max-w-lg text-white/90">
+          <div className="">
+            <p className=" max-w-md text-[#C8D2D9] !font-medium ">
               We supply industrial equipment and manage technical projects so
               your business runs smoothly and avoids costly delays.
             </p>
 
-            <Button className="mt-6 bg-white text-black hover:bg-transparent hover:text-white">
+            {/* <Button className="mt-6 !font-semibold sm:w-full bg-white text-black !rounded-md hover:bg-transparent hover:text-white hover:border">
+              Request a Quote
+            </Button> */}
+
+            <Button
+              className="mt-5 py-6 px-6 w-full lg:w-fit font-semibold
+    bg-white
+    text-black
+    !rounded-md
+    hover:bg-transparent
+    hover:text-white
+    hover:border
+    
+  "
+            >
               Request a Quote
             </Button>
           </div>
