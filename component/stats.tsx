@@ -60,18 +60,18 @@ export function StatsSection() {
   return (
     <section className="border-t border-border bg-background py-16 mx-2 md:mx-6 lg:mx-12  ">
       <div className="mx-auto max-w-5xl">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3 ">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="flex items-baseline justify-center">
                 <span className="text-5xl text-black md:text-6xl">
                   <CountUp end={stat.value} />
                 </span>
-                <span className="text-4xl font-bold text-[#3EB6CC] md:text-4xl lg:text-5xl">
+                <span className="text-5xl font-bold text-[#3EB6CC] md:text-4xl lg:text-5xl">
                   {stat.suffix}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-gray-700">{stat.label}</p>
+              <p className="mt-2 text-sm text-gray-500">{stat.label}</p>
             </div>
           ))}
         </div>

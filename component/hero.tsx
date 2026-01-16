@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/5" />
 
       {/* NAVBAR */}
-      <nav className="relative z-20 flex items-center justify-between px-2 py-4 md:px-6 lg:px-12">
+      <nav className="relative z-20 flex items-center justify-between px-2 py-4 lg:px-12">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <img
@@ -104,7 +104,7 @@ export function HeroSection() {
       </div>
 
       {/* HERO CONTENT */}
-      <div className="relative z-10 flex min-h-[650px] items-end px-2 pb-10 md:px-6 lg:px-12 ">
+      <div className="relative z-10 flex min-h-[650px] items-end px-2 pb-10 lg:px-12 ">
         <div className="grid gap-8 lg:grid-cols-2 ">
           <h1 className="self-center text-4xl font-bold text-white md:text-5xl lg:leading-14">
             Industrial Trading & Project Solutions for Businesses
