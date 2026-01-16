@@ -106,7 +106,7 @@ export function HeroSection() {
       {/* HERO CONTENT */}
       <div className="relative z-10 flex min-h-[650px] items-end px-6 pb-10 lg:px-12 ">
         <div className="grid gap-8 lg:grid-cols-2 ">
-          <h1 className="self-center text-4xl font-bold text-white md:text-5xl leading-14">
+          <h1 className="self-center text-4xl font-bold text-white md:text-5xl lg:leading-14">
             Industrial Trading & Project Solutions for Businesses
           </h1>
 
