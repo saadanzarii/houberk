@@ -1,10 +1,34 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     let start = 0;
     const startTime = performance.now();
 
@@ -21,9 +45,9 @@ function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
     };
 
     requestAnimationFrame(animate);
-  }, [end, duration]);
+  }, [end, duration, isVisible]);
 
-  return <>{count}</>;
+  return <span ref={ref}>{count}</span>;
 }
 
 export function StatsSection() {
@@ -34,8 +58,8 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="border-t border-border bg-background py-16">
-      <div className="mx-auto max-w-5xl px-6">
+    <section className="border-t border-border bg-background py-16 mx-2 md:mx-6 lg:mx-12  ">
+      <div className="mx-auto max-w-5xl">
         <div className="grid gap-8 md:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
